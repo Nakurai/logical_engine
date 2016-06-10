@@ -1,0 +1,73 @@
+// c = concept
+// p = predicate
+// f = function
+// v = value (string, number)
+
+//////////////////////////////////////////
+/////////////// CORE META DATA ///////////
+//////////////////////////////////////////
+// COLLECTION TREE
+c.thing p.is c.thing
+c.tangible p.is c.thing
+c.untangible p.is c.thing
+c.number p.is c.untangible
+c.characterString p.is c.untangible
+c.name p.is c.characterString
+c.label p.is c.characterString
+c.location p.is c.tangible
+c.building p.is c.location
+c.action p.is c.untangible
+c.actionSignature p.is c.characterString
+
+// DEFINING ATTRIBUTES OF ONE COLLECTIONS. ONE COLLECTION INHERIT OF THE ATTRIUTES OF ALL ITS PARENTS
+c.thing p.has c.label
+c.action p.has c.actionSignature
+
+//PREDICATES DEFINITIONS. PRECISES WHAT KIND OF ENTITIES CAN BE LINKED BY EACH PREDICATE
+p.has c.thing c.thing
+p.is c.thing c.thing
+
+// PRECISING THE VALUE OF THE ATTRIBUTE
+
+
+//////////////////////////////////////////////
+/////////////// SPECIFIC META DATA ///////////
+//////////////////////////////////////////////
+c.locationStart p.is c.location
+c.locationEnd p.is c.location
+
+c.airport p.is c.building
+c.airport c.label airport
+
+c.idNumber p.is c.characterString
+
+c.nbStops p.is c.number
+
+c.flight p.is c.untangible
+c.flight c.label flight
+c.flight p.has c.idNumber
+c.flight p.has c.locationStart
+c.flight p.has c.locationEnd
+c.flight p.has c.nbStops
+c.flightIsDirect p.is c.action
+c.flightIsDirect c.label direct-flight
+c.fligthIsDirect c.actionSignature {uri:'action/flights/flights_actions.js', function:'isDirect', parameter:'nbStops'}
+
+
+
+//////////////////////////////////////////
+/////////////// INSTANCES ////////////////
+//////////////////////////////////////////
+c.airportCDG p.is c.airport
+c.airportCDG c.label CDG
+c.airportCDG c.label Roissy-charles-de-gaulle
+c.airportYYZ p.is c.airport
+c.airportYYZ c.label YYZ
+c.airportYYZ c.label Pearson-international
+
+c.flightAAZ25 p.is c.flight
+c.flightAAZ25 c.label AAZ25
+c.flightAAZ25 c.idNumber AAZ25
+c.flightAAZ25 c.locationStart c.airportCDG
+c.flightAAZ25 c.locationEnd c.airportYYZ
+c.flightAAZ25 c.nbStops 0

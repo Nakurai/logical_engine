@@ -1,0 +1,20 @@
+{
+  "name": "logic_engine",
+  "version": "0.1.0",
+  "main": "server.js",
+  "author": {
+    "name": "Christophe Mamessier"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "buckets-js": "^1.98.1",
+    "byline": "^4.2.1",
+    "cheerio": "^0.20.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-validator": "^2.20.4",
+    "q": "^1.4.1"
+  },
+  "description": "dumb example of an inference logic engine"
+}
